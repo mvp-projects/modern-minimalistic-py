@@ -19,3 +19,6 @@ pip install sample
 ## License
 
 `sample` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
+
+## Inspiration
+- https://peps.python.org/pep-0665/
