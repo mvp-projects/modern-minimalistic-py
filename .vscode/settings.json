@@ -1,0 +1,19 @@
+{
+    "window.zoomLevel": 0.3,
+    "editor.minimap.enabled": true,
+    "editor.renderWhitespace": "all",
+    "editor.formatOnSave": true,
+    "editor.rulers": [
+        88,
+        100
+    ],
+    "[python]": {
+        "gitlens.codeLens.symbolScopes": [
+            "!Module"
+        ],
+        "editor.wordBasedSuggestions": true,
+    },
+    "python.linting.lintOnSave": true,
+    "python.linting.enabled": true,
+    "python.formatting.provider": "black"
+}
