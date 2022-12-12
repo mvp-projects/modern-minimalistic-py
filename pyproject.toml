@@ -34,6 +34,9 @@ dev = [
     "pip-tools",
     "hatch",
 ]
+security = [
+    "safety"
+]
 
 [project.urls]
 Documentation = "https://github.com/unknown/sample#readme"

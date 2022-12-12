@@ -6,7 +6,7 @@ sources = sample tests
 .PHONY: install-dev
 install-dev:
 	python -m pip install -U pip
-	pip install -r requirements/dev-requirements.txt
+	pip install -r requirements/dev.txt
 
 .PHONY: refresh-lockfiles
 refresh-lockfiles: ## Rewrite requirements lockfiles
@@ -14,13 +14,14 @@ refresh-lockfiles: ## Rewrite requirements lockfiles
 	find requirements/ -name '*.txt' ! -name 'all.txt' -type f -delete
 	mkdir -p requirements
 	# https://github.com/dependabot/dependabot-core/issues/3940
-	pip-compile -q --resolver backtracking --extra dev -o requirements/dev-requirements.txt pyproject.toml
+	pip-compile -q --resolver backtracking --extra dev -o requirements/dev.txt pyproject.toml
+	pip-compile -q --resolver backtracking --extra security -o requirements/security.txt pyproject.toml
 	pip-compile -q --resolver backtracking -o requirements/docs.txt requirements/docs.in
-	pip-compile -q --resolver backtracking -o requirements/core-requirements.txt pyproject.toml
+	pip-compile -q --resolver backtracking -o requirements/core.txt pyproject.toml
 
 .PHONY: sync-dev-environment
-sync-dev-environment: ## sync dev virtualenv with requirements/dev-requirements.txt
-	@pip-sync requirements/dev-requirements.txt
+sync-dev-environment: ## sync dev virtualenv with requirements/dev.txt
+	@pip-sync requirements/dev.txt
 
 .PHONY: lint
 lint: # Lint code.
