@@ -1,5 +1,6 @@
 SHELL:=/usr/bin/env bash
 OS = $(shell uname | tr A-Z a-z)
+sources = sample tests
 
 .PHONY: refresh-lockfiles
 refresh-lockfiles: ## Rewrite requirements lockfiles
@@ -14,13 +15,15 @@ refresh-lockfiles: ## Rewrite requirements lockfiles
 sync-dev-environment: ## sync dev virtualenv with requirements/dev-requirements.txt
 	@pip-sync requirements/dev-requirements.txt
 
-.PHONE: show-envs
-show-envs: ## Show all different environments
-	@hatch env show
+.PHONY: lint
+lint: # Lint code.
+	mypy $(sources)
+	ruff $(sources)
+	black $(sources)
 
-.PHONE: prune-envs
-prune-envs: ## Prune project related envs. May require to deactivate venv and reload terminal.
-	@hatch env prune
+.PHONY: unit
+unit: # Run code unittest
+	pytest .
 
 .PHONY: clean
 clean: ## Cleans project folder mainly cache
