@@ -7,8 +7,10 @@
 
 **Table of Contents**
 
-- [Installation](#installation)
-- [License](#license)
+- [sample](#sample)
+  - [Installation](#installation)
+  - [License](#license)
+  - [Inspiration](#inspiration)
 
 ## Installation
 
@@ -22,3 +24,4 @@ pip install sample
 
 ## Inspiration
 - https://peps.python.org/pep-0665/
+- https://fastapi.tiangolo.com/contributing/ -> We could not use requirements folder. But something like `FastAPI`
