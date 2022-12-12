@@ -15,5 +15,6 @@
     },
     "python.linting.lintOnSave": true,
     "python.linting.enabled": true,
-    "python.formatting.provider": "black"
+    "python.formatting.provider": "black",
+    "ruff.importStrategy": "fromEnvironment"
 }
