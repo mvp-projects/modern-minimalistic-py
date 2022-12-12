@@ -1,3 +1,6 @@
+# virtualenv
+.venv/
+
 # pytest
 .pytest_cache/
 .coverage
