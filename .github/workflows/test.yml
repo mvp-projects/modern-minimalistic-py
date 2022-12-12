@@ -35,8 +35,5 @@ jobs:
       - name: Install Hatch
         run: pip install -r requirements/dev.txt
 
-      - name: Run lint
-        run: make lint
-
-      - name: Run tests
-        run: make unit
+      - name: Run code
+        run: make test

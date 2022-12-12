@@ -4,7 +4,7 @@ OS = $(shell uname | tr A-Z a-z)
 sources = sample tests
 
 .PHONY: install-dev
-install-dev:
+install-dev: ## Install dev dependencies (MAKE SURE YOU ARE WITHIN A VENV).
 	python -m pip install -U pip
 	pip install -r requirements/core.txt
 	pip install -r requirements/dev.txt
@@ -25,14 +25,19 @@ sync-dev-environment: ## sync dev virtualenv
 	@pip-sync requirements/dev.txt requirements/core.txt 
 
 .PHONY: lint
-lint: # Lint code.
+lint: ## Lint code.
 	mypy $(sources)
 	ruff $(sources)
 	black $(sources)
 
 .PHONY: unit
-unit: # Run code unittest
+unit: ## Run code unittest
 	pytest .
+
+.PHONY: test
+test:
+	make lint
+	make unit
 
 .PHONY: clean
 clean: ## Cleans project folder mainly cache
