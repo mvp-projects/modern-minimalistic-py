@@ -53,10 +53,8 @@ lint = [
   "black ."
 ]
 
-[[tool.hatch.envs.test.matrix]]
-python = ["310", "311"]
-
 [tool.hatch.envs.docs]
+detached = true
 dependencies = [
   "mkdocs-material",
 ]
@@ -154,6 +152,7 @@ max-complexity = 10
 
 [tool.ruff.flake8-quotes]
 docstring-quotes = "double"
+inline-quotes = "double"
 
 [tool.pytest.ini_options]
 testpaths = [

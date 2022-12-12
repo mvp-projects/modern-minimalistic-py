@@ -3,7 +3,7 @@ OS = $(shell uname | tr A-Z a-z)
 
 .PHONE: show-envs
 show-envs: ## Show all different environments
-	@hatch env show --ascii
+	@hatch env show
 
 .PHONE: prune-envs
 prune-envs: ## Prune project related envs. May require to deactivate venv and reload terminal.
