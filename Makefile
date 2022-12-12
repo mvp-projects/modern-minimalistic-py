@@ -8,6 +8,7 @@ show-envs: ## Show all different environments
 .PHONE: prune-envs
 prune-envs: ## Prune project related envs. May require to deactivate venv and reload terminal.
 	@hatch env prune
+
 .PHONY: clean
 clean: ## Cleans project folder mainly cache
 	@rm -rf `find . -name __pycache__`
