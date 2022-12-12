@@ -6,8 +6,9 @@ updates:
   schedule:
     interval: monthly
 
+# https://github.com/microsoft/torchgeo/pull/603/files
 - package-ecosystem: pip
-  directory: "/requirements"
+  directory: "requirements"
   schedule:
     interval: daily
   open-pull-requests-limit: 10
