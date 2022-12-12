@@ -43,7 +43,7 @@ dependencies = [
 ]
 
 [tool.hatch.envs.default.scripts]
-watch = "ruff . --watch"
+watch = "ruff . -w -q --config pyproject.toml"
 resolve-deps = "pip-compile -o requirements.txt pyproject.toml --resolver=backtracking --generate-hashes"
 coverage = "pytest  {args}"
 test = "run-coverage --no-cov {args}"
