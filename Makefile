@@ -7,8 +7,6 @@ sources = sample tests
 install-dev:
 	python -m pip install -U pip
 	pip install -r requirements/dev-requirements.txt
-	pip install -e .
-
 
 .PHONY: refresh-lockfiles
 refresh-lockfiles: ## Rewrite requirements lockfiles
