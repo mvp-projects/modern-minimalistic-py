@@ -110,7 +110,7 @@ pytest==7.2.0
     #   sample (pyproject.toml)
 pytest-cov==4.0.0
     # via sample (pyproject.toml)
-rfc3986[idna2008]==1.5.0
+rfc3986[idna2008]==2.0.0
     # via httpx
 rich==12.6.0
     # via hatch
