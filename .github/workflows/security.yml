@@ -24,16 +24,16 @@ jobs:
         os: [ubuntu-latest] # [ubuntu-latest, windows-latest, macos-latest]
         python-version: ["3.10"]
 
-      steps:
-      - uses: actions/checkout@v3
+    steps:
+    - uses: actions/checkout@v3
 
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
-        with:
-          python-version: ${{ matrix.python-version }}
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
 
-      - name: Install Security
-        run: pip install -r requirements/security.txt
+    - name: Install Security
+      run: pip install -r requirements/security.txt
 
-      - name: Check security
-        run: python safety check --full-report
+    - name: Check security
+      run: python safety check --full-report
