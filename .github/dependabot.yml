@@ -6,7 +6,7 @@ updates:
   schedule:
     interval: monthly
 
-- package-ecosystem: pip-compile
+- package-ecosystem: pip
   directory: "/requirements"
   schedule:
     interval: daily
