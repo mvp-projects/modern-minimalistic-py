@@ -76,3 +76,6 @@ ENV/
 
 # Thumbnails
 ._*
+
+# Mkdocs build output
+site/

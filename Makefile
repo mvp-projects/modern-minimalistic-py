@@ -52,6 +52,14 @@ clean: ## Cleans project folder mainly cache
 	@rm -rf build
 	@find tests sample -empty -type d -delete
 
+.PHONY: serve-docs
+serve-docs: ## Serve project documentation
+	@mkdocs serve
+
+.PHONY: build-docs
+build-docs:
+	@mkdocs build
+
 .PHONY: help
 help:
 	@grep -h -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-10s\033[0m %s\n", $$1, $$2}'
