@@ -36,4 +36,4 @@ jobs:
       run: pip install -r requirements/security.txt
 
     - name: Check security
-      run: python safety check --full-report
+      run: python -m safety check --full-report
