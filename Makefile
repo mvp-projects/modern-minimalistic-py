@@ -1,6 +1,19 @@
 SHELL:=/usr/bin/env bash
 OS = $(shell uname | tr A-Z a-z)
 
+.PHONY: refresh-lockfiles
+refresh-lockfiles: ## Rewrite requirements lockfiles
+	@echo "Updating requirements/*.txt files using `pip-compile`"
+	find requirements/ -name '*.txt' ! -name 'all.txt' -type f -delete
+	mkdir -p requirements
+	pip-compile -q --resolver backtracking --extra dev -o requirements/dev-requirements.txt pyproject.toml
+	pip-compile -q --resolver backtracking -o requirements/docs.txt requirements/docs.in
+	pip-compile -q --resolver backtracking -o requirements/core-requirements.txt pyproject.toml
+
+.PHONY: sync-dev-environment
+sync-dev-environment: ## sync dev virtualenv with requirements/dev-requirements.txt
+	@pip-sync requirements/dev-requirements.txt
+
 .PHONE: show-envs
 show-envs: ## Show all different environments
 	@hatch env show

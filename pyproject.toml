@@ -24,6 +24,17 @@ classifiers = [
 dependencies = ["orjson >= 3.8.3"]
 dynamic = ["version"]
 
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "mypy",
+    "ruff",
+    "black",
+    "pip-tools",
+    "hatch",
+]
+
 [project.urls]
 Documentation = "https://github.com/unknown/sample#readme"
 Issues = "https://github.com/unknown/sample/issues"
@@ -31,37 +42,6 @@ Source = "https://github.com/unknown/sample"
 
 [tool.hatch.version]
 path = "sample/__about__.py"
-
-[tool.hatch.envs.default]
-dependencies = [
-  "ruff",
-  "pip-tools",
-  "mypy",
-  "pytest",
-  "pytest-cov",
-  "black",
-]
-
-[tool.hatch.envs.default.scripts]
-watch = "ruff . -w -q --config pyproject.toml"
-resolve-deps = "pip-compile -o requirements.txt pyproject.toml --resolver=backtracking --generate-hashes"
-coverage = "pytest  {args}"
-test = "coverage --no-cov {args}"
-lint = [
-  "mypy .",
-  "ruff .",
-  "black ."
-]
-
-[tool.hatch.envs.docs]
-detached = true
-dependencies = [
-  "mkdocs-material",
-]
-
-[tool.hatch.envs.docs.scripts]
-build = "mkdocs build --clean --strict"
-serve = "mkdocs serve --dev-addr localhost:8000"
 
 [tool.coverage.run]
 branch = true
