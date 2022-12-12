@@ -84,7 +84,12 @@ exclude_lines = [
 force-wrap-aliases = true
 combine-as-imports = true
 
+[tool.ruff.pyupgrade]
+# Preserve types, even if a file imports `from __future__ import annotations`.
+keep-runtime-typing = true
+
 [tool.ruff]
+# https://github.com/charliermarsh/ruff#is-ruff-compatible-with-black
 line-length = 88
 
 select = [
@@ -93,7 +98,7 @@ select = [
   "D",
   "W",
   "I",
-  "C",
+  "C90",
   "UP",
   "N",
   "ANN",
