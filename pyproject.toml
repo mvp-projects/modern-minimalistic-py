@@ -103,7 +103,7 @@ select = [
   "A",
   "B",
   "C4",
-  "T10",
+  "T20",
   "ICN",
   "Q",
   "RET",
@@ -117,6 +117,7 @@ select = [
   "PLR",
   "PLW",
   "RUF",
+  "YTT",
 ]
 
 fix = true
