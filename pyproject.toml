@@ -23,20 +23,7 @@ classifiers = [
 # https://hatch.pypa.io/latest/config/dependency/
 dependencies = ["orjson >= 3.8.3"]
 dynamic = ["version"]
-
-[project.optional-dependencies]
-dev = [
-    "pytest",
-    "pytest-cov",
-    "mypy",
-    "ruff",
-    "black",
-    "pip-tools",
-    "hatch",
-]
-security = [
-    "safety"
-]
+optional-dependencies = {}
 
 [project.urls]
 Documentation = "https://github.com/unknown/sample#readme"
