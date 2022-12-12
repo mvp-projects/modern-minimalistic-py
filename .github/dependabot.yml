@@ -7,6 +7,7 @@ updates:
     interval: monthly
 
 # https://github.com/microsoft/torchgeo/pull/603/files
+# https://github.com/microsoft/torchgeo/blob/e3f9fb4fdc691ac5edb2618ef97299139a2c3861/.github/dependabot.yml
 - package-ecosystem: pip
   directory: "requirements"
   schedule:
