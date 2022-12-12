@@ -35,5 +35,8 @@ jobs:
       - name: Install Hatch
         run: pip install --upgrade hatch
 
+      - name: Run lint
+        run: hatch run lint
+
       - name: Run tests
         run: hatch run coverage
