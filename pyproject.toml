@@ -46,7 +46,7 @@ dependencies = [
 watch = "ruff . -w -q --config pyproject.toml"
 resolve-deps = "pip-compile -o requirements.txt pyproject.toml --resolver=backtracking --generate-hashes"
 coverage = "pytest  {args}"
-test = "run-coverage --no-cov {args}"
+test = "coverage --no-cov {args}"
 lint = [
   "mypy .",
   "ruff .",
