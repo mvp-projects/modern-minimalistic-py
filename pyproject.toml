@@ -1,0 +1,76 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sample"
+description = ''
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "Tomas Perez Alvarez", email = "tomasperezalvarez@gmail.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = []
+dynamic = ["version"]
+
+[project.urls]
+Documentation = "https://github.com/unknown/sample#readme"
+Issues = "https://github.com/unknown/sample/issues"
+Source = "https://github.com/unknown/sample"
+
+[tool.hatch.version]
+path = "sample/__about__.py"
+
+[tool.hatch.envs.test]
+dependencies = [
+  "pytest",
+  "pytest-cov",
+]
+
+[tool.hatch.envs.docs]
+dependencies = [
+  "mkdocs",
+]
+
+[tool.hatch.envs.dev]
+dependencies = [
+  "ruff",
+]
+
+[tool.hatch.envs.dev.scripts]
+watch = "ruff . --watch"
+
+[tool.hatch.envs.docs.scripts]
+build = "mkdocs build --clean --strict"
+serve = "mkdocs serve --dev-addr localhost:8000"
+
+[tool.hatch.envs.test.scripts]
+cov = "pytest --cov-report=term-missing --cov-config=pyproject.toml --cov=sample --cov=tests {args}"
+no-cov = "cov --no-cov {args}"
+
+[[tool.hatch.envs.test.matrix]]
+python = ["310", "311"]
+
+[tool.coverage.run]
+branch = true
+parallel = true
+omit = [
+  "sample/__about__.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
