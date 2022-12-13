@@ -23,6 +23,7 @@ classifiers = [
 # https://hatch.pypa.io/latest/config/dependency/
 dependencies = [
   "orjson >= 3.8.3",
+  "returns >=0.19.0"
 ]
 dynamic = ["version"]
 optional-dependencies = {}

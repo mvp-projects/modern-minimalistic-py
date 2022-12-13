@@ -10,3 +10,7 @@
 
 orjson==3.8.3
     # via sample (pyproject.toml)
+returns==0.19.0
+    # via sample (pyproject.toml)
+typing-extensions==4.4.0
+    # via returns
