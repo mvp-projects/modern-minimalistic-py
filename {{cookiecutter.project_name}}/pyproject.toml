@@ -151,7 +151,7 @@ addopts =[
 
 [tool.mypy]
 files = [
-  "tryme",
+  "{{cookiecutter.project_name.lower().replace('-', '_')}}",
   "tests"
 ]
 
