@@ -8,20 +8,9 @@
 **Table of Contents**
 
 - [sample](#sample)
-  - [Installation](#installation)
-  - [License](#license)
   - [Inspiration](#inspiration)
 
-## Installation
-
-```console
-pip install sample
-```
-
-## License
-
-`sample` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
-
 ## Inspiration
+Nor Pydantic, FastAPI, Ruff, etc... seem to use `Poetry`. So I build a sample project (That might be worth to move as a `cookiecutter` template) that mimics the deps management those repositories use
 - https://peps.python.org/pep-0665/
 - https://fastapi.tiangolo.com/contributing/ -> We could not use requirements folder. But something like `FastAPI`
