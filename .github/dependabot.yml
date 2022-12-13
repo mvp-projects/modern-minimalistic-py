@@ -8,7 +8,7 @@ updates:
 
 # https://github.com/microsoft/torchgeo/pull/603/files
 - package-ecosystem: pip
-  directory: "{{cookiecutter.project_name}}/requirements"
+  directory: "/{{cookiecutter.project_name}}/requirements"
   schedule:
     interval: daily
   open-pull-requests-limit: 2
