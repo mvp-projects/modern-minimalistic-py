@@ -112,7 +112,7 @@ rfc3986[idna2008]==1.5.0
     # via httpx
 rich==12.6.0
     # via hatch
-ruff==0.0.177
+ruff==0.0.178
     # via -r requirements/dev.in
 shellingham==1.5.0
     # via hatch
