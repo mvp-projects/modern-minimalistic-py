@@ -42,6 +42,7 @@ branch = true
 parallel = true
 omit = [
   "{{cookiecutter.project_name.lower().replace('-', '_')}}/__about__.py",
+  "{{cookiecutter.project_name.lower().replace('-', '_')}}/logging.py"
 ]
 
 [tool.coverage.report]
@@ -145,9 +146,15 @@ addopts =[
   "--cov-report=term-missing:skip-covered",
   "--cov-config=pyproject.toml",
   "--cov={{cookiecutter.project_name.lower().replace('-', '_')}}",
+  "--cov=test"
 ]
 
 [tool.mypy]
+files = [
+  "tryme",
+  "tests"
+]
+
 # temporarily ignore some files
 show_error_codes = true
 follow_imports = 'silent'
