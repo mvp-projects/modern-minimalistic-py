@@ -17,5 +17,7 @@
     "python.linting.enabled": true,
     "python.formatting.provider": "black",
     "python.linting.mypyEnabled": true,
-    "python.linting.pylintEnabled": false,
+    "python.linting.mypyPath": "mypy",
+    "python.testing.pytestEnabled": true,
+    "python.analysis.typeCheckingMode": "off" // Mypy is doing this.
 }
