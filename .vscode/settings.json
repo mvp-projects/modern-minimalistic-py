@@ -7,6 +7,11 @@
         88,
         100
     ],
+    "python.testing.pytestArgs": [
+        "tests",
+        // https://github.com/microsoft/vscode-python/issues/693#issuecomment-367856613
+        "--no-cov",
+    ],
     "[python]": {
         "gitlens.codeLens.symbolScopes": [
             "!Module"
