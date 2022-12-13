@@ -16,5 +16,5 @@ pip install cookiecutter jinja2-git lice
 Then, create a project itself:
 
 ```bash
-cookiecutter gh:mvp-projects/modern-minimalistic-py
+cookiecutter git+ssh://git@github.com/mvp-projects/modern-minimalistic-py
 ```
