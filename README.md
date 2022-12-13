@@ -1,7 +1,7 @@
 # sample
 
-[![PyPI - Version](https://img.shields.io/pypi/v/sample.svg)](https://pypi.org/project/sample)
-[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/sample.svg)](https://pypi.org/project/sample)
+[![Build Status](https://github.com/Tomperez98/modern-minimalistic-py/workflows/test/badge.svg?branch=main&event=push)](https://github.com/Tomperez98/modern-minimalistic-py/actions?query=workflow%3Atest)
+![black-python-styleguide](https://img.shields.io/badge/code%20style-black-000000.svg)
 
 -----
 
