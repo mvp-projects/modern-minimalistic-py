@@ -3,8 +3,8 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "sample"
-description = ''
+name = "{{cookiecutter.project_name.lower().replace('-', '_')}}"
+description = "{{ cookiecutter.project_description }}"
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
@@ -29,18 +29,18 @@ dynamic = ["version"]
 optional-dependencies = {}
 
 [project.urls]
-Documentation = "https://github.com/unknown/sample#readme"
-Issues = "https://github.com/unknown/sample/issues"
-Source = "https://github.com/unknown/sample"
+Documentation = "https://github.com/{{ cookiecutter.organization }}/{{cookiecutter.project_name.lower().replace('-', '_')}}#readme"
+Issues = "https://github.com/{{ cookiecutter.organization }}/{{cookiecutter.project_name.lower().replace('-', '_')}}/issues"
+Source = "https://github.com/{{ cookiecutter.organization }}/{{cookiecutter.project_name.lower().replace('-', '_')}}"
 
 [tool.hatch.version]
-path = "sample/__about__.py"
+path = "{{cookiecutter.project_name.lower().replace('-', '_')}}/__about__.py"
 
 [tool.coverage.run]
 branch = true
 parallel = true
 omit = [
-  "sample/__about__.py",
+  "{{cookiecutter.project_name.lower().replace('-', '_')}}/__about__.py",
 ]
 
 [tool.coverage.report]
@@ -143,7 +143,7 @@ addopts =[
   "--cov-fail-under=90", 
   "--cov-report=term-missing:skip-covered",
   "--cov-config=pyproject.toml",
-  "--cov=sample",
+  "--cov={{cookiecutter.project_name.lower().replace('-', '_')}}",
 ]
 
 [tool.mypy]

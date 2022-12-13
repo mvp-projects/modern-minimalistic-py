@@ -2,7 +2,7 @@
 
 import pytest
 from typing import Type
-from sample.example import some_function
+from {{cookiecutter.project_name.lower().replace('-', '_')}}.example import some_function
 
 
 @pytest.mark.parametrize(

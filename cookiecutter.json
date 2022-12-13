@@ -1,0 +1,6 @@
+{
+    "project_name": "my-project",
+    "organization": "my-organization/my-username",
+    "project_description": "Project Description",
+    "_extensions": ["jinja2_git.GitExtension"]
+}

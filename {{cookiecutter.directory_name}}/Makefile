@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := help
 SHELL:=/usr/bin/env bash
 OS = $(shell uname | tr A-Z a-z)
-sources = sample tests
+sources = {{cookiecutter.project_name.lower().replace('-', '_')}} tests
 
 .PHONY: install-dev
 install-dev: ## Install dev dependencies (MAKE SURE YOU ARE WITHIN A VENV).
@@ -55,7 +55,7 @@ clean: ## Cleans project folder mainly cache
 	@rm -f .coverage.*
 	@rm -f coverage.xml
 	@rm -rf build
-	@find tests sample -empty -type d -delete
+	@find tests {{cookiecutter.project_name.lower().replace('-', '_')}} -empty -type d -delete
 
 .PHONY: serve-docs
 serve-docs: ## Serve project documentation
