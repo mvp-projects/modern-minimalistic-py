@@ -1,9 +1,8 @@
 """Example test."""
 
 import pytest
-
+from typing import Type
 from sample.example import some_function
-from returns import result
 
 
 @pytest.mark.parametrize(
@@ -17,18 +16,29 @@ from returns import result
 )
 def test_some_function(first: int, second: int, expected: int) -> None:
     """Example test with parametrization."""
-    result = some_function(first, second).unwrap()
-    assert result == pytest.approx(expected)
+    value = some_function(first, second)
+    err = value.err()
+    if not err:
+        assert value.unwrap() == pytest.approx(expected)
+    else:
+        assert False
 
 
 @pytest.mark.parametrize(
-    ("first", "second"),
+    ("first", "second", "expected_err_type"),
     [
-        (1, 0),
+        (1, 0, ZeroDivisionError),
     ],
 )
-def test_some_function_fails(first: int, second: int) -> None:
-    result = some_function(first, second)
-    err = result.failure()
-    if isinstance(err, ZeroDivisionError):
-        assert True
+def test_some_function_fails(
+    first: int, second: int, expected_err_type: Type[Exception]
+) -> None:
+    value = some_function(first, second)
+    err = value.err()
+    if not err:
+        assert False
+    else:
+        if isinstance(err, expected_err_type):
+            assert True
+        else:
+            assert False

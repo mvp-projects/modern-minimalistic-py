@@ -135,9 +135,7 @@ tomli-w==1.0.0
 tomlkit==0.11.6
     # via hatch
 typing-extensions==4.4.0
-    # via
-    #   -c requirements/./core.txt
-    #   mypy
+    # via mypy
 userpath==1.8.0
     # via hatch
 virtualenv==20.17.1
