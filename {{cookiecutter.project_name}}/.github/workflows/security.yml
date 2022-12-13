@@ -1,4 +1,4 @@
-name: security
+{% raw %}name: security
 
 on:
   push:
@@ -39,3 +39,4 @@ jobs:
 
     - name: Check security
       run: python -m safety check --full-report
+{% endraw %}
