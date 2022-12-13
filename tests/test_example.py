@@ -16,10 +16,11 @@ from sample.example import some_function
 )
 def test_some_function(first: int, second: int, expected: int) -> None:
     """Example test with parametrization."""
-    value = some_function(first, second)
-    err = value.err()
+    resp = some_function(first, second)
+    err = resp.err()
     if not err:
-        assert value.unwrap() == pytest.approx(expected)
+        value = resp.unwrap()
+        assert value == pytest.approx(expected)
     else:
         assert False
 
@@ -28,13 +29,14 @@ def test_some_function(first: int, second: int, expected: int) -> None:
     ("first", "second", "expected_err_type"),
     [
         (1, 0, ZeroDivisionError),
+        (1, 11, ValueError),
     ],
 )
 def test_some_function_fails(
     first: int, second: int, expected_err_type: Type[Exception]
 ) -> None:
-    value = some_function(first, second)
-    err = value.err()
+    resp = some_function(first, second)
+    err = resp.err()
     if not err:
         assert False
     else:
