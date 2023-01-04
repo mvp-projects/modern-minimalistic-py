@@ -6,8 +6,8 @@ sources = {{cookiecutter.project_name.lower().replace('-', '_')}} tests
 .PHONY: install-dev
 install-dev: ## Install dev dependencies (MAKE SURE YOU ARE WITHIN A VENV).
 	python -m pip install -U pip
-	pip install -r requirements/core.txt
 	pip install -r requirements/dev.txt
+	pip install -e .
 
 .PHONY: refresh-lockfiles
 refresh-lockfiles: ## Rewrite requirements lockfiles
@@ -16,13 +16,12 @@ refresh-lockfiles: ## Rewrite requirements lockfiles
 	mkdir -p requirements
 	# https://github.com/dependabot/dependabot-core/issues/3940
 	pip-compile -q --resolver backtracking -o requirements/core.txt pyproject.toml
-	pip-compile -q --resolver backtracking -o requirements/dev.txt requirements/dev.in
-	pip-compile -q --resolver backtracking -o requirements/security.txt requirements/security.in
-	pip-compile -q --resolver backtracking -o requirements/docs.txt requirements/docs.in
+	pip-compile -q --upgrade --extra dev --resolver backtracking -o requirements/dev.txt pyproject.toml
 
-.PHONY: sync-dev-environment
-sync-dev-environment: ## sync dev virtualenv
-	@pip-sync requirements/dev.txt requirements/core.txt 
+.PHONY: sync-to-env
+sync-to-env: ## sync dev virtualenv
+	@pip-sync requirements/$(env).txt
+	@pip install -e .
 
 .PHONY: lint
 lint: ## Lint code.
