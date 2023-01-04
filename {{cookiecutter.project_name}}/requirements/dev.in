@@ -1,9 +1,0 @@
--c ./core.txt
-
-pytest
-pytest-cov
-mypy
-ruff
-black
-pip-tools
-hatch
