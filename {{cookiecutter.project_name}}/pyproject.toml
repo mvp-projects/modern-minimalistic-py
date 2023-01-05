@@ -43,9 +43,9 @@ dev = [
 ]
 
 [project.urls]
-Documentation = "https://github.com/{{ cookiecutter.organization }}/{{cookiecutter.project_name.lower().replace('-', '_')}}#readme"
-Issues = "https://github.com/{{ cookiecutter.organization }}/{{cookiecutter.project_name.lower().replace('-', '_')}}/issues"
-Source = "https://github.com/{{ cookiecutter.organization }}/{{cookiecutter.project_name.lower().replace('-', '_')}}"
+Documentation = "https://github.com/{{ cookiecutter.organization }}/{{cookiecutter.project_name.lower()}}#readme"
+Issues = "https://github.com/{{ cookiecutter.organization }}/{{cookiecutter.project_name.lower()}}/issues"
+Source = "https://github.com/{{ cookiecutter.organization }}/{{cookiecutter.project_name.lower()}}"
 
 [tool.hatch.version]
 path = "{{cookiecutter.project_name.lower().replace('-', '_')}}/__about__.py"
