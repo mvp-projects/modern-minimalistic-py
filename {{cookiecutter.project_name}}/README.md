@@ -1,4 +1,4 @@
-# {{cookiecutter.project_name.lower().replace('-', '_')}}
+# {{cookiecutter.project_name.lower()}}
 
 [![Build Status](https://github.com/{{ cookiecutter.organization }}/{{ cookiecutter.project_name }}/workflows/test/badge.svg?branch=main&event=push)](https://github.com/{{ cookiecutter.organization }}/{{ cookiecutter.project_name }}/actions?query=workflow%3Atest)
 ![black-python-styleguide](https://img.shields.io/badge/code%20style-black-000000.svg)
