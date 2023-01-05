@@ -19,4 +19,4 @@ This Template Project does not require any Package Manager, it runs purely with 
 ## How to run?
 - Create a virtual environment
 - Activate the environment
-- run `make install-dev `
+- run `make install env=dev`
