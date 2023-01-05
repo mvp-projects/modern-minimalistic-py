@@ -1,0 +1,18 @@
+name: build package
+
+on:
+  push:
+    tags:
+    - v*
+
+concurrency:
+  group: build-package-${{ github.head_ref }}
+
+jobs:
+  build:
+    name: Build wheels and source distribution
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    # TODO:
