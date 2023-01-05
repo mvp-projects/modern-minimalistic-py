@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := help
 SHELL:=/usr/bin/env bash
 OS = $(shell uname | tr A-Z a-z)
-sources = {{cookiecutter.project_name.lower().replace('-', '_')}} tests
+sources = {{cookiecutter.project_name.lower().replace('-', '_')}} tests scripts
 
 .PHONY: install-dev
 install-dev: ## Install dev dependencies (MAKE SURE YOU ARE WITHIN A VENV).
@@ -15,8 +15,8 @@ refresh-lockfiles: ## Rewrite requirements lockfiles
 	find requirements/ -name '*.txt' ! -name 'all.txt' -type f -delete
 	mkdir -p requirements
 	# https://github.com/dependabot/dependabot-core/issues/3940
-	pip-compile -q --resolver backtracking -o requirements/core.txt pyproject.toml
-	pip-compile -q --upgrade --extra dev --resolver backtracking -o requirements/dev.txt pyproject.toml
+	pip-compile -q --upgrade --resolver backtracking --no-emit-trusted-host -o requirements/core.txt pyproject.toml
+	pip-compile -q --upgrade --extra dev --resolver backtracking --no-emit-trusted-host -o requirements/dev.txt pyproject.toml
 
 .PHONY: sync-to-env
 sync-to-env: ## sync dev virtualenv
