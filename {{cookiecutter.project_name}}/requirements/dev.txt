@@ -165,7 +165,7 @@ rfc3986[idna2008]==1.5.0
     # via httpx
 rich==13.0.0
     # via hatch
-ruff==0.0.210
+ruff==0.0.211
     # via whats_this_payload (pyproject.toml)
 shellingham==1.5.0.post1
     # via hatch
