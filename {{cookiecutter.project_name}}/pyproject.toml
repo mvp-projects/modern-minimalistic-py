@@ -176,8 +176,7 @@ addopts =[
   "--cov-fail-under=90", 
   "--cov-report=term-missing:skip-covered",
   "--cov-config=pyproject.toml",
-  "--cov={{cookiecutter.project_name.lower().replace('-', '_')}}",
-  "--cov=test"
+  "--cov={{cookiecutter.project_name.lower().replace('-', '_')}}"
 ]
 
 [tool.mypy]
