@@ -3,10 +3,10 @@ SHELL:=/usr/bin/env bash
 OS = $(shell uname | tr A-Z a-z)
 sources = {{cookiecutter.project_name.lower().replace('-', '_')}} tests scripts
 
-.PHONY: install-dev
-install-dev: ## Install dev dependencies (MAKE SURE YOU ARE WITHIN A VENV).
+.PHONY: install
+install: ## Install dev dependencies (MAKE SURE YOU ARE WITHIN A VENV).
 	python -m pip install -U pip
-	pip install -r requirements/dev.txt
+	pip install -r requirements/$(env).txt
 	pip install -e .
 
 .PHONY: refresh-lockfiles
