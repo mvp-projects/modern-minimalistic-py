@@ -1,0 +1,31 @@
+name: audit dependencies
+
+on: workflow_dispatch
+
+concurrency:
+  group: test-${{ github.head_ref }}
+  cancel-in-progress: false
+
+jobs:
+  run:
+    name: "Audit dependencies."
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        python-version: ["3.11"]
+
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install pip audit
+        run: pip install pip-audit
+
+      - name: Audit dependencies
+        run: pip-audit -r requirements/dev.txt -l --desc
