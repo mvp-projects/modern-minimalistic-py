@@ -15,7 +15,7 @@ def main() -> None:
     Based on https://github.com/pypa/hatch/blob/master/scripts/release_github.py
     """
     pkg_data = tomli.loads(pathlib.Path("pyproject.toml").read_text(encoding="utf-8"))
-    about_data = (pathlib.Path("whats_this_payload") / "__about__.py").read_text(
+    about_data = (pathlib.Path("{{cookiecutter.project_name.lower().replace('-', '_')}}") / "__about__.py").read_text(
         encoding="utf-8"
     )
     search_result = re.search(r"__version__ = \"(.*?)\"", about_data)
