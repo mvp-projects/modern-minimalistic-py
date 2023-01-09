@@ -78,7 +78,7 @@ keyring==23.13.1
     # via hatch
 loguru==0.6.0
     # via whats_this_payload (pyproject.toml)
-markdown==3.3.7
+markdown==3.4.1
     # via
     #   mkdocs
     #   mkdocs-material
