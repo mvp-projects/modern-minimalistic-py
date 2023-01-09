@@ -1,4 +1,4 @@
-name: audit dependencies
+{% raw %}name: audit dependencies
 
 on: workflow_dispatch
 
@@ -29,3 +29,5 @@ jobs:
 
       - name: Audit dependencies
         run: pip-audit -r requirements/core.txt -l --desc
+
+{% endraw %}
