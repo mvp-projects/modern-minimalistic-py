@@ -79,3 +79,6 @@ ENV/
 
 # Mkdocs build output
 site/
+
+# pyenv
+.python-version
