@@ -22,9 +22,9 @@ classifiers = [
 ]
 # https://hatch.pypa.io/latest/config/dependency/
 dependencies = [
-  "orjson >= 3.8.3",
-  "result >= 0.9.0",
-  "loguru >= 0.6.0"
+  "orjson",
+  "result",
+  "loguru"
 ]
 dynamic = ["version"]
 
