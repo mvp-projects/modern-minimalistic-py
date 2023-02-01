@@ -1,4 +1,4 @@
-name: build package
+{% raw %}name: build package
 
 on:
   push:
@@ -16,3 +16,5 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     # TODO:
+
+{% endraw %}

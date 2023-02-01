@@ -9,6 +9,10 @@ install: ## Install dev dependencies (MAKE SURE YOU ARE WITHIN A VENV).
 	pip install -r requirements/$(env).txt
 	pip install -e .
 
+.PHONY: new-release
+new-release: ## Prepare new release for github.
+	python scripts/release_github.py
+
 .PHONY: refresh-lockfiles
 refresh-lockfiles: ## Rewrite requirements lockfiles
 	@echo "Updating requirements/*.txt files using `pip-compile`"
