@@ -101,7 +101,7 @@ mypy-extensions==0.4.3
     # via
     #   black
     #   mypy
-orjson==3.8.4
+orjson==3.8.5
     # via whats_this_payload (pyproject.toml)
 packaging==22.0
     # via
