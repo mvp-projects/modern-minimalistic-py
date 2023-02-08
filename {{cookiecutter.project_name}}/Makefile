@@ -21,6 +21,7 @@ refresh-lockfiles: ## Rewrite requirements lockfiles
 	# https://github.com/dependabot/dependabot-core/issues/3940
 	pip-compile -q --upgrade --resolver backtracking --no-emit-trusted-host -o requirements/core.txt pyproject.toml
 	pip-compile -q --upgrade --extra dev --resolver backtracking --no-emit-trusted-host -o requirements/dev.txt pyproject.toml
+	rm -f requirements.txt
 
 .PHONY: sync-to-env
 sync-to-env: ## sync dev virtualenv
