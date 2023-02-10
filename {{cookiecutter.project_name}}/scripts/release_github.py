@@ -2,9 +2,10 @@
 import pathlib
 import re
 import sys
-import tomllib
 import webbrowser
 from urllib.parse import urlencode
+
+import tomli
 
 
 def main() -> None:
@@ -13,8 +14,8 @@ def main() -> None:
 
     Based on https://github.com/pypa/hatch/blob/master/scripts/release_github.py
     """
-    pkg_data = tomllib.loads(pathlib.Path("pyproject.toml").read_text(encoding="utf-8"))
-    about_data = (pathlib.Path("{{cookiecutter.project_name.lower().replace('-', '_')}}") / "__about__.py").read_text(
+    pkg_data = tomli.loads(pathlib.Path("pyproject.toml").read_text(encoding="utf-8"))
+    about_data = (pathlib.Path("cloud_cli") / "__about__.py").read_text(
         encoding="utf-8"
     )
     search_result = re.search(r"__version__ = \"(.*?)\"", about_data)
@@ -24,8 +25,8 @@ def main() -> None:
     version = search_result.group(1)
     params = urlencode(
         query={
-            "title": "v{version}".format(version=version),
-            "tag": "v{version}".format(version=version),
+            "title": f"v{version}",
+            "tag": f"v{version}",
         }
     )
 
