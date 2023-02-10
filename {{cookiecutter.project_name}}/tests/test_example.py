@@ -22,7 +22,7 @@ def test_some_function(first: int, second: int, expected: int) -> None:
         value = resp.unwrap()
         assert value == pytest.approx(expected)
     else:
-        assert False
+        raise AssertionError()
 
 
 @pytest.mark.parametrize(
@@ -35,12 +35,13 @@ def test_some_function(first: int, second: int, expected: int) -> None:
 def test_some_function_fails(
     first: int, second: int, expected_err_type: Type[Exception]
 ) -> None:
+    """Test failure."""
     resp = some_function(first, second)
     err = resp.err()
     if not err:
-        assert False
+        raise AssertionError()
+
+    if isinstance(err, expected_err_type):
+        assert True
     else:
-        if isinstance(err, expected_err_type):
-            assert True
-        else:
-            assert False
+        raise AssertionError()
