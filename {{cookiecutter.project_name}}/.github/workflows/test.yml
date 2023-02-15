@@ -26,7 +26,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-
+      
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
@@ -37,4 +37,45 @@ jobs:
 
       - name: Run code
         run: make test
+        env:
+          COVERAGE_FILE: ".coverage.${{ matrix.python-version }}"
+
+      - name: Store coverage file
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage
+          path: .coverage.${{ matrix.python-version }}
+
+  coverage:
+    name: "Merging coverage reports"
+    if: github.event_name == 'pull_request'
+    needs:
+    - run
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/download-artifact@v3
+        id: download
+        with:
+          name: 'coverage'
+
+      - name: Coverage comment
+        id: coverage_comment
+        uses: py-cov-action/python-coverage-comment-action@v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MERGE_COVERAGE_FILES: true
+
+      - name: Store Pull Request comment to be posted
+        uses: actions/upload-artifact@v3
+        if: steps.coverage_comment.outputs.COMMENT_FILE_WRITTEN == 'true'
+        with:
+          name: python-coverage-comment-action
+          path: python-coverage-comment-action.txt
 {% endraw %}
