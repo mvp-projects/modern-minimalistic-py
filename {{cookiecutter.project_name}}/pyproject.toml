@@ -57,6 +57,7 @@ omit = [
   "{{cookiecutter.project_name.lower().replace('-', '_')}}/__about__.py",
   "{{cookiecutter.project_name.lower().replace('-', '_')}}/logging.py"
 ]
+relative_files = true
 
 [tool.coverage.report]
 precision = 1
