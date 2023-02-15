@@ -59,7 +59,7 @@ clean: ## Cleans project folder mainly cache
 	@rm -f .coverage.*
 	@rm -f coverage.xml
 	@rm -rf build
-	@find tests {{cookiecutter.project_name.lower().replace('-', '_')}} -empty -type d -delete
+	@find $(sources) -empty -type d -delete
 
 .PHONY: serve-docs
 serve-docs: ## Serve project documentation
