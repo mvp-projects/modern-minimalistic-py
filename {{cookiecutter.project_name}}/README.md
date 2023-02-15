@@ -2,7 +2,8 @@
 
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v1.json)](https://github.com/charliermarsh/ruff)
 [![Build Status](https://github.com/{{ cookiecutter.organization }}/{{ cookiecutter.project_name }}/workflows/test/badge.svg?branch=main&event=push)](https://github.com/{{ cookiecutter.organization }}/{{ cookiecutter.project_name }}/actions?query=workflow%3Atest)
-[![Coverage badge](https://raw.githubusercontent.com/{{ cookiecutter.organization }}/{{ cookiecutter.project_name }}/python-coverage-comment-action-data/badge.svg)](https://htmlpreview.github.io/?https://github.com/{{ cookiecutter.organization }}/{{ cookiecutter.project_name }}/blob/python-coverage-comment-action-data/htmlcov/index.html)
+[![Coverage badge](https://github.com/{{ cookiecutter.organization }}/{{ cookiecutter.project_name }}/raw/python-coverage-comment-action-data/badge.svg)](https://github.com/{{ cookiecutter.organization }}/{{ cookiecutter.project_name }}/tree/python-coverage-comment-action-data)
+
 
 
 -----
