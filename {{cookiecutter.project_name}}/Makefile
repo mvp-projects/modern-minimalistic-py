@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := help
 SHELL:=/usr/bin/env bash
 OS = $(shell uname | tr A-Z a-z)
-sources = {{cookiecutter.project_name.lower().replace('-', '_')}} tests scripts
+sources = detp_casptone_1_impl tests scripts
 
 .PHONY: install
 install: ## Install dev dependencies (MAKE SURE YOU ARE WITHIN A VENV).
@@ -35,13 +35,17 @@ lint: ## Lint code.
 	black $(sources)
 
 .PHONY: unit
-unit: ## Run code unittest
-	pytest .
+unit: ## Run code unittest.
+	pytest -m unit
+
+.PHONY: integration
+integration: ## Run code integration tests.
+	pytest -m integration
 
 .PHONY: test
 test:
 	make lint
-	make unit
+	pytest
 
 .PHONY: clean
 clean: ## Cleans project folder mainly cache
