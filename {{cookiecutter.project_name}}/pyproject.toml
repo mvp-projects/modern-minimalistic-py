@@ -175,10 +175,15 @@ testpaths = [
 ]
 xfail_strict = true
 addopts =[
+  "--strict-markers",
   "--cov-fail-under=90", 
   "--cov-report=term-missing:skip-covered",
   "--cov-config=pyproject.toml",
   "--cov={{cookiecutter.project_name.lower().replace('-', '_')}}"
+]
+markers = [
+  "integration: mark integration tests.",
+  "unit: mark unittest"
 ]
 
 [tool.mypy]
