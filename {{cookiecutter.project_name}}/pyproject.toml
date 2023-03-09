@@ -92,40 +92,7 @@ ignore = [
 ]
 
 select = [
-  "E",
-  "F",
-  "D",
-  "W",
-  "I",
-  "C90",
-  "UP",
-  "N",
-  "ANN",
-  "S",
-  "BLE",
-  "FBT",
-  "A",
-  "B",
-  "C4",
-  "T20",
-  "ICN",
-  "Q",
-  "RET",
-  "TID",
-  "SIM",
-  "ARG",
-  "ERA",
-  "PGH",
-  "PLC",
-  "PLE",
-  "PLR",
-  "PLW",
-  "RUF",
-  "YTT",
-  "DTZ",
-  "PIE",
-  "PT",
-  "ISC"
+  "ALL"
 ]
 
 fix = true
