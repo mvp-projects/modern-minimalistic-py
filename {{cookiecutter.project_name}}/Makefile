@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := help
 SHELL:=/usr/bin/env bash
 OS = $(shell uname | tr A-Z a-z)
-sources = detp_casptone_1_impl tests scripts
+sources = {{cookiecutter.project_name.lower().replace('-', '_')}} tests scripts
 
 .PHONY: install
 install: ## Install dev dependencies (MAKE SURE YOU ARE WITHIN A VENV).
