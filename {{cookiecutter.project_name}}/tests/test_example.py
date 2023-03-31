@@ -17,12 +17,10 @@ from {{cookiecutter.project_name.lower().replace('-', '_')}}.example import some
 def test_some_function(first: int, second: int, expected: int) -> None:
     """Example test with parametrization."""
     resp = some_function(first, second)
-    err = resp.err()
-    if not err:
-        value = resp.unwrap()
-        assert value == pytest.approx(expected)
+    if isinstance(resp, Ok):
+        assert resp.unwrap() == pytest.approx(expected)
     else:
-        raise AssertionError()
+        raise TypeError
 
 
 @pytest.mark.parametrize(
@@ -33,15 +31,19 @@ def test_some_function(first: int, second: int, expected: int) -> None:
     ],
 )
 def test_some_function_fails(
-    first: int, second: int, expected_err_type: Type[Exception]
+    first: int,
+    second: int,
+    expected_err_type: type[Exception],
 ) -> None:
     """Test failure."""
     resp = some_function(first, second)
-    err = resp.err()
-    if not err:
-        raise AssertionError()
+    if isinstance(
+        resp,
+        Ok,
+    ) or not isinstance(
+        resp.err(),
+        expected_err_type,
+    ):
+        raise TypeError
 
-    if isinstance(err, expected_err_type):
-        assert True
-    else:
-        raise AssertionError()
+    assert True
