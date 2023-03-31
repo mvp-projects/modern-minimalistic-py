@@ -1,7 +1,8 @@
 """Example test."""
 
 import pytest
-from typing import Type
+from result import Ok
+
 from {{cookiecutter.project_name.lower().replace('-', '_')}}.example import some_function
 
 
