@@ -161,7 +161,7 @@ files = [
 
 # temporarily ignore some files
 show_error_codes = true
-follow_imports = 'silent'
+follow_imports = 'normal'
 strict_optional = true
 warn_redundant_casts = true
 warn_unused_ignores = true
