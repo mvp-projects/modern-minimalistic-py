@@ -30,22 +30,22 @@ sync-to-env: ## sync dev virtualenv
 
 .PHONY: lint
 lint: ## Lint code.
-	mypy $(sources)
-	ruff $(sources)
-	black $(sources)
+	python -m mypy $(sources)
+	python -m ruff $(sources)
+	python -m black $(sources)
 
 .PHONY: unit
 unit: ## Run code unittest.
-	pytest -m unit
+	python -m pytest -m unit
 
 .PHONY: integration
 integration: ## Run code integration tests.
-	pytest -m integration
+	python -m pytest -m integration
 
 .PHONY: test
 test:
 	make lint
-	pytest
+	python -m pytest
 
 .PHONY: clean
 clean: ## Cleans project folder mainly cache
