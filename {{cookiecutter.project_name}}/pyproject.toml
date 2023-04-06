@@ -142,6 +142,7 @@ testpaths = [
 ]
 xfail_strict = true
 addopts =[
+  "--import-mode=importlib",
   "--strict-markers",
   "--cov-fail-under=90", 
   "--cov-report=term-missing:skip-covered",
