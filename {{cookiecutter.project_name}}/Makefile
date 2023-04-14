@@ -73,6 +73,10 @@ serve-docs: ## Serve project documentation
 build-docs:
 	@mkdocs build
 
+.PHONY: reload-settings
+reload-settings: ## Reload settings from pyproject.toml
+	@touch pyproject.toml
+
 .PHONY: help
 help:
 	@grep -h -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-10s\033[0m %s\n", $$1, $$2}'
