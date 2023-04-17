@@ -7,7 +7,7 @@ sources = {{cookiecutter.project_name.lower().replace('-', '_')}} tests scripts
 install: ## Install dev dependencies (MAKE SURE YOU ARE WITHIN A VENV).
 	python -m pip install -U pip
 	pip install -r requirements/$(env).txt
-	pip install -e .
+	pip install --no-deps -e .
 
 .PHONY: new-release
 new-release: ## Prepare new release for github.
