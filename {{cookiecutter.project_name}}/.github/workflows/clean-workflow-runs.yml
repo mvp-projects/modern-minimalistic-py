@@ -1,4 +1,4 @@
-name: Delete old workflow runs
+{% raw %}name: Delete old workflow runs
 on:
   workflow_dispatch:
     inputs:
@@ -60,3 +60,4 @@ jobs:
           delete_workflow_by_state_pattern: ${{ github.event.inputs.delete_workflow_by_state_pattern }}
           delete_run_by_conclusion_pattern: ${{ github.event.inputs.delete_run_by_conclusion_pattern }}
           dry_run: ${{ github.event.inputs.dry_run }}
+{% endraw %}
