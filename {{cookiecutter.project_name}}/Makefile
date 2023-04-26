@@ -30,7 +30,7 @@ sync-to-env: ## sync dev virtualenv
 
 .PHONY: lint
 lint: ## Lint code.
-	python -m mypy $(sources)
+	python -m mypy $(sources) --explicit-package-bases
 	python -m ruff $(sources)
 	python -m black $(sources)
 
