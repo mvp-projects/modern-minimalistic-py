@@ -135,7 +135,7 @@ pygments==2.14.0
     # via
     #   mkdocs-material
     #   rich
-pymdown-extensions==9.9
+pymdown-extensions==10.0
     # via mkdocs-material
 pyperclip==1.8.2
     # via hatch
