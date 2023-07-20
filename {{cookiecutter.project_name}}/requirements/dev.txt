@@ -131,7 +131,7 @@ pluggy==1.0.0
     #   pytest
 ptyprocess==0.7.0
     # via pexpect
-pygments==2.14.0
+pygments==2.15.0
     # via
     #   mkdocs-material
     #   rich
